@@ -17,7 +17,7 @@
 
 ## 下载成品
 
-最新插件安装包：[`releases/代码修补_v4.3.mtp`](releases/代码修补_v4.3.mtp)
+最新插件安装包：[`releases/代码修补_v4.4.mtp`](releases/代码修补_v4.4.mtp)
 
 下载后用 MT 管理器打开即可安装。
 
