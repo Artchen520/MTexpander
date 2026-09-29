@@ -18,7 +18,7 @@
 ## 从源码构建
 
 ```
-git clone https://github.com/Artchen520/-.git
+git clone https://github.com/Artchen520/MTexpander.git
 ```
 
 - JDK 17+ / AGP 8.13 / Gradle 8.13（项目自带 wrapper）
