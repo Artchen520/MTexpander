@@ -1,0 +1,2 @@
+-keepattributes SourceFile,LineNumberTable,*Annotation*
+-keep class com.mtsnippets.expander.** { *; }

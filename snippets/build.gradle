@@ -1,0 +1,65 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.mt.plugin)
+}
+
+tasks.configureEach { task ->
+    if (task.name.contains("lint")) {
+        task.enabled = false
+    }
+}
+
+android {
+    // 固定这个就行，不需要改
+    namespace = 'bin.mt.plugin.pusher'
+    compileSdk = 36
+
+    defaultConfig {
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk = 28
+        minSdk = 21
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled = true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring libs.desugar.jdk.libs
+}
+
+/**
+ * MT 插件配置
+ */
+mtPlugin {
+    pushTarget = "auto"
+
+    // 插件ID，插件的唯一标识
+    pluginID = "com.artchen520.expander"
+
+    versionCode = 2
+    versionName = "v4.1"
+
+    name = "代码修补"
+    description = "IDEA 风格的安卓代码修补工具：缩写一键展开（自定义分组+按文件类型生效）；框选批量注释（对齐缩进列，注释符跟随文件类型）；环绕包裹（自定义模板库）；顶部编辑菜单分组开关面板。项目地址：https://github.com/Artchen520/-"
+
+    mainPreference = "com.mtsnippets.expander.SnippetPreference"
+
+    interfaces = [
+            "com.mtsnippets.expander.SnippetFunction",
+            "com.mtsnippets.expander.SnippetFloatingMenu",
+            "com.mtsnippets.expander.CommentFloatingMenu",
+            "com.mtsnippets.expander.SurroundFloatingMenu",
+            "com.mtsnippets.expander.GroupToolMenu",
+    ]
+}
